@@ -39,6 +39,7 @@ class FarmTextEncoder(BaseTextTorchEncoder):
         self.extraction_layer = extraction_layer
 
     def post_init(self):
+        super().post_init()
         from farm.infer import Inferencer
         self.model = Inferencer.load(model_name_or_path=self.model_name, task_type='embeddings',
                                      num_processes=self.num_processes)

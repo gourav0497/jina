@@ -37,6 +37,7 @@ class FlairTextEncoder(BaseTextTorchEncoder):
         self._post_set_device = False
 
     def post_init(self):
+        super().post_init()
         import flair
         flair.device = self.device
         from flair.embeddings import WordEmbeddings, FlairEmbeddings, BytePairEmbeddings, PooledFlairEmbeddings, \

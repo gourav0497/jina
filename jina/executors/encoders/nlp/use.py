@@ -30,6 +30,7 @@ class UniversalSentenceEncoder(BaseTextTFEncoder):
             self.model_url = 'https://tfhub.dev/google/universal-sentence-encoder/4'
 
     def post_init(self):
+        super().post_init()
         self.to_device()
         import tensorflow_hub as hub
         self.model = hub.load(self.model_url)

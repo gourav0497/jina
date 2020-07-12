@@ -163,6 +163,7 @@ class BaseCVPaddlehubEncoder(BasePaddlehubEncoder):
         self._default_channel_axis = -3
 
     def post_init(self):
+        super().post_init()
         import paddlehub as hub
         module = hub.Module(name=self.model_name)
         inputs, outputs, self.model = module.context(trainable=False)

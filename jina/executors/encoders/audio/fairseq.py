@@ -31,6 +31,7 @@ class Wav2VecSpeechEncoder(BaseTorchEncoder, BaseAudioEncoder):
     def post_init(self):
         import torch
         from fairseq.models.wav2vec import Wav2VecModel
+        super().post_init()
         cp = torch.load(self.model_path, map_location=torch.device('cpu'))
         self.model = Wav2VecModel.build_model(cp['args'], task=None)
         self.model.load_state_dict(cp['model'])
